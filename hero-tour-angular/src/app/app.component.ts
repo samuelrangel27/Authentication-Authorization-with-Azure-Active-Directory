@@ -15,37 +15,13 @@ export class AppComponent implements OnInit {
   private readonly _destroying$ = new Subject<void>();
 
   constructor(public authService:AuthenticationService,
-    private bradcastService: MsalBroadcastService,
-    private http: HttpClient)
+    private bradcastService: MsalBroadcastService)
   {
   }
 
   ngOnInit(): void {
-    // this.bradcastService.inProgress$
-    //   .pipe(
-    //     filter((status: InteractionStatus) => status === InteractionStatus.None),
-    //     takeUntil(this._destroying$)
-    //   )
-    //   .subscribe()
   }
 
-  login()
-  {
-    this.authService.login();
-  }
+  
 
-  logout(){
-    this.authService.logout();
-  }
-
-  callAPI(){
-    console.log('Call api')
-    this.http.get('https://localhost:7250/api/WeatherForecast')
-      .subscribe(x => console.log(x));
-  }
-
-  postApi(){
-    this.http.post('https://localhost:7250/api/WeatherForecast', {})
-      .subscribe(x => console.log(x));
-  }
 }

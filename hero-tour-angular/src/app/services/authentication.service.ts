@@ -40,7 +40,7 @@ export class AuthenticationService {
   }
 
   public getInfo(){
-    const act = JSON.stringify(this.authService.instance.getAllAccounts());
+    const act = this.authService.instance.getAllAccounts();
     console.log(act)
     return act;
   }

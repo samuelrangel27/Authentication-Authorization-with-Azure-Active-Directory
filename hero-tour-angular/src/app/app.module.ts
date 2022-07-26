@@ -7,13 +7,19 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {ButtonModule} from 'primeng/button';
+import { TopSecretComponent } from './top-secret/top-secret.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopSecretComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    ButtonModule,
     HttpClientModule,
     AppRoutingModule,
     MsalModule.forRoot(new PublicClientApplication(
