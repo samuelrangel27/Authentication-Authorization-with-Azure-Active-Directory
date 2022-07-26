@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-top-secret',
@@ -9,7 +8,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class TopSecretComponent implements OnInit {
 
-  constructor(public authService:AuthenticationService, private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +22,10 @@ export class TopSecretComponent implements OnInit {
   postApi(){
     this.http.post('https://localhost:7250/api/WeatherForecast', {})
       .subscribe(x => console.log(x));
+  }
+
+  getInfo()
+  {
+
   }
 }
