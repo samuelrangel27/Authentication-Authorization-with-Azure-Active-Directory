@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'app-top-secret',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopSecretComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private authService:MsalService) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +28,6 @@ export class TopSecretComponent implements OnInit {
 
   getInfo()
   {
-
+    return this.authService.instance.getAllAccounts()
   }
 }
